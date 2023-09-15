@@ -1,5 +1,10 @@
 # CmsJoomla
 
+Download local install of Joomla make sure you can access:
+
+http://localhost/joomla/administrator/
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
 ## Development server
