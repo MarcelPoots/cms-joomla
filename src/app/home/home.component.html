@@ -13,10 +13,15 @@
     <div class="article">
       <h2>{{article.attributes.title}}</h2>
       <p></p>
-      {{article.attributes.images.image_intro}}
 
-      <img src="{{article.attributes.images.image_intro}}">
-     <div [innerHTML]="article.attributes.text | slice:0:400 "></div>
+
+      <img src="{{article.attributes.images.image_intro}}"
+           title="{{article.attributes.images.image_intro_alt}}">
+
+      <img src="{{article.attributes.images.image_fulltext}}"
+           title="{{article.attributes.images.image_fulltext_alt}}">
+
+      <div [innerHTML]="article.attributes.text | slice:0:400 "></div>
 
       <a class="button button1" [routerLink]="['/article', article.attributes.id]">
         Read More
