@@ -2,3 +2,11 @@ GET http://localhost/joomla/api/index.php/v1/content/articles
 Content-Type: text/plain
 Accept: */*
 X-Joomla-Token: c2hhMjU2OjczNDphZDliNmIwMjdhOGFiNjc4NzA1YzJhY2NkZmQzMjU2ZTc2ZDM2ODNmODQxNzc3NWQ0MjY2MmQxYWJkMjdlN2E2
+
+###
+
+GET http://localhost/joomla/api/index.php/v1/content/articles/12
+Content-Type: text/plain
+Accept: */*
+X-Joomla-Token: c2hhMjU2OjczNDphZDliNmIwMjdhOGFiNjc4NzA1YzJhY2NkZmQzMjU2ZTc2ZDM2ODNmODQxNzc3NWQ0MjY2MmQxYWJkMjdlN2E2
+

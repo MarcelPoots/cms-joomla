@@ -2,6 +2,25 @@
   <div>
     <span class="logo-1">The</span>
     <span class="logo-2">CMS</span>
-    <span class="logo-3">Demo</span>
+    <span class="logo-3">DEMO</span>
   </div>
 </header>
+
+<div *ngIf="articles">
+  YES: {{articles == null}}
+</div>
+
+
+<div *ngIf="articles">
+<!--YES:{{JSON.stringify(articles)}}-->
+
+  <div *ngFor="let article of articles.data">
+    <div class="article">
+      {{article.id}}
+    </div>
+  </div>
+
+</div>
+
+
+

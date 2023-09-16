@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
+import {JoomlaService} from "../joomla.service";
 
 
 @Component({
@@ -7,24 +7,41 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  id!: string;
+  articles: any = null;
+  errorMessage: any;
+
+  constructor(private service: JoomlaService) {
+
+  }
+
+  ngOnInit(): void {
+   // this.id = this.route.snapshot.paramMap.get('id') as string;
+   // console.log('ID ' + this.id);
     this.getArticles();
+    }
+
+  getArticles() {
+    //this.spinner.show();
+    this.service.getArticles().subscribe(
+      (response) => {
+        // Try to run this code
+        this.articles = response;
+        console.log(this.articles);
+      //  this.spinner.hide();
+      },
+      (error) => {
+        // if any error, Code throws the error
+        this.errorMessage = error.error.message;
+        console.log(error.error.message, 'error');
+        //this.spinner.hide();
+      }
+    );
   }
 
-  getArticles(){
-    let headers = new HttpHeaders();
-    headers.set('Content-Type', 'text/plain');
-    headers.set('Accept', '*/*');
-    headers.set('X-Joomla-Token', 'c2hhMjU2OjczNDphZDliNmIwMjdhOGFiNjc4NzA1YzJhY2NkZmQzMjU2ZTc2ZDM2ODNmODQxNzc3NWQ0MjY2MmQxYWJkMjdlN2E2');
 
-    this.http.get('http://localhost/joomla/api/index.php/v1/content/articles', {
-      headers: {'Content-Type':'text/plain',
-                 'Accept':'*/*',
-                 'X-Joomla-Token':'c2hhMjU2OjczNDphZDliNmIwMjdhOGFiNjc4NzA1YzJhY2NkZmQzMjU2ZTc2ZDM2ODNmODQxNzc3NWQ0MjY2MmQxYWJkMjdlN2E2'}
-    }).subscribe( (response) => {
-      console.log( JSON.stringify(response) );
-    })
-  }
+  protected readonly JSON = JSON;
+
 }
