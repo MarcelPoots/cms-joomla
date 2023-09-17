@@ -41,9 +41,30 @@ header div span {
   margin-left: 18px;
 }
 
-.article {
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  background-color: beige;
+.article-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  margin-bottom: 100px;
+  padding: 30px;
+}
+
+.article-container img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.article-container h2 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.article-container .content {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.article-container a {
+  margin-bottom: 40px;
+
 }

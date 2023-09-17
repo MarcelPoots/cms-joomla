@@ -1,3 +1,4 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
 <header>
   <div>
     <span class="logo-1">The</span>
@@ -10,20 +11,18 @@
 
   <div *ngFor="let article of articles.data">
 
-    <div class="article">
+    <div class="article-container">
       <h2>{{article.attributes.title}}</h2>
-      <p></p>
-
 
       <img src="{{article.attributes.images.image_intro}}"
            title="{{article.attributes.images.image_intro_alt}}">
-
+      <p></p>
       <img src="{{article.attributes.images.image_fulltext}}"
            title="{{article.attributes.images.image_fulltext_alt}}">
 
-      <div [innerHTML]="article.attributes.text | slice:0:400 "></div>
+      <p class="content" [innerHTML]="article.attributes.text | slice:0:400 "></p>
 
-      <a class="button button1" [routerLink]="['/article', article.attributes.id]">
+      <a [routerLink]="['/article', article.attributes.id]">
         Read More
       </a>
 

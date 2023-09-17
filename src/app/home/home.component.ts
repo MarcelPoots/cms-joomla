@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {JoomlaService} from "../joomla.service";
+import {NgxSpinnerService} from "ngx-spinner";
 
 
 @Component({
@@ -9,39 +10,36 @@ import {JoomlaService} from "../joomla.service";
 })
 export class HomeComponent implements OnInit {
 
-  id!: string;
   articles: any = null;
   errorMessage: any;
 
-  constructor(private service: JoomlaService) {
+  constructor(private service: JoomlaService,
+              private spinner: NgxSpinnerService) {
 
   }
 
   ngOnInit(): void {
-   // this.id = this.route.snapshot.paramMap.get('id') as string;
-   // console.log('ID ' + this.id);
     this.getArticles();
-    }
+  }
 
   getArticles() {
-    //this.spinner.show();
+    this.spinner.show();
     this.service.getArticles().subscribe(
       (response) => {
         // Try to run this code
         this.articles = response;
         console.log(this.articles);
-      //  this.spinner.hide();
+        this.spinner.hide();
+
       },
       (error) => {
         // if any error, Code throws the error
         this.errorMessage = error.error.message;
         console.log(error.error.message, 'error');
-        //this.spinner.hide();
+        this.spinner.hide();
       }
     );
   }
 
-
-  protected readonly JSON = JSON;
 
 }
