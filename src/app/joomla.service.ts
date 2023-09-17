@@ -31,7 +31,7 @@ export class JoomlaService {
 
   getSingleArticles(id: string){
 
-    return this.http.get('http://localhost/joomla/api/index.php/v1/content/articles/${id}',
+    return this.http.get('http://localhost/joomla/api/index.php/v1/content/articles/' +id,
     {headers}).pipe(catchError(this.errorHandler));
 
   }

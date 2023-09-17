@@ -8,7 +8,7 @@
 </header>
 
 <div *ngIf="articles">
-
+  <span style="color: red">{{errorMessage}}</span>
   <div *ngFor="let article of articles.data">
 
     <div class="article-container">

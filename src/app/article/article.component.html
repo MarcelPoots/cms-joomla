@@ -1,1 +1,16 @@
-<p>article works!</p>
+<div class="article-container">
+    <h2>{{article.data.attributes.title}}</h2>
+
+    <img src="{{article.data.attributes.images.image_intro}}"
+         title="{{article.data.attributes.images.image_intro_alt}}">
+    <p></p>
+    <img src="{{article.data.attributes.images.image_fulltext}}"
+         title="{{article.data.attributes.images.image_fulltext_alt}}">
+
+    <p class="content" [innerHTML]="article.data.attributes.text"></p>
+
+    <a [routerLink]="['']">
+        Back
+    </a>
+
+</div>
